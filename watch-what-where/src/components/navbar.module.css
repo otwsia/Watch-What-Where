@@ -1,0 +1,25 @@
+.navbar {
+  height: 50px;
+  width: auto;
+  background-color: var(--main-color);
+  color: white;
+  padding: 0% 1%;
+  align-items: center;
+  /* position: fixed;
+  top: 0; */
+}
+
+.logo {
+  max-height: 90%;
+}
+
+.flex {
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.pointer {
+  cursor: pointer;
+}
