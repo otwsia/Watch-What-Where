@@ -8,7 +8,6 @@ const Home = () => {
   return (
     <div className={`container-fluid ${styles.home}`}>
       <Navbar />
-      {/* fgffhhahhahdjhdfksfghfhgkjhfgkshkjfghfsghkshgkjshkjgshgsjghfjksghjkshgkhfgjshjgfjfghkjshgjkhfghskjdfghkjshfgshkgjfghksfhgjk
       fgffhhahhahdjhdfksfghfhgkjhfgkshkjfghfsghkshgkjshkjgshgsjghfjksghjkshgkhfgjshjgfjfghkjshgjkhfghskjdfghkjshfgshkgjfghksfhgjk
       fgffhhahhahdjhdfksfghfhgkjhfgkshkjfghfsghkshgkjshkjgshgsjghfjksghjkshgkhfgjshjgfjfghkjshgjkhfghskjdfghkjshfgshkgjfghksfhgjk
       fgffhhahhahdjhdfksfghfhgkjhfgkshkjfghfsghkshgkjshkjgshgsjghfjksghjkshgkhfgjshjgfjfghkjshgjkhfghskjdfghkjshfgshkgjfghksfhgjk
@@ -74,7 +73,8 @@ const Home = () => {
       fgffhhahhahdjhdfksfghfhgkjhfgkshkjfghfsghkshgkjshkjgshgsjghfjksghjkshgkhfgjshjgfjfghkjshgjkhfghskjdfghkjshfgshkgjfghksfhgjk
       fgffhhahhahdjhdfksfghfhgkjhfgkshkjfghfsghkshgkjshkjgshgsjghfjksghjkshgkhfgjshjgfjfghkjshgjkhfghskjdfghkjshfgshkgjfghksfhgjk
       fgffhhahhahdjhdfksfghfhgkjhfgkshkjfghfsghkshgkjshkjgshgsjghfjksghjkshgkhfgjshjgfjfghkjshgjkhfghskjdfghkjshfgshkgjfghksfhgjk
-      fgffhhahhahdjhdfksfghfhgkjhfgkshkjfghfsghkshgkjshkjgshgsjghfjksghjkshgkhfgjshjgfjfghkjshgjkhfghskjdfghkjshfgshkgjfghksfhgjk */}
+      fgffhhahhahdjhdfksfghfhgkjhfgkshkjfghfsghkshgkjshkjgshgsjghfjksghjkshgkhfgjshjgfjfghkjshgjkhfghskjdfghkjshfgshkgjfghksfhgjk
+      fgffhhahhahdjhdfksfghfhgkjhfgkshkjfghfsghkshgkjshkjgshgsjghfjksghjkshgkhfgjshjgfjfghkjshgjkhfghskjdfghkjshfgshkgjfghksfhgjk
     </div>
   );
 };
