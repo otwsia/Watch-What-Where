@@ -1,6 +1,5 @@
 .navbar {
   height: 50px;
-  width: auto;
   /* background-color: var(--main-color); */
   color: white;
   padding: 0% 1%;
@@ -14,7 +13,7 @@
 }
 
 .logo {
-  max-height: 90%;
+  height: 50px;
 }
 
 .flex {

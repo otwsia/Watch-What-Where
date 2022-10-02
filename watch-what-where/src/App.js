@@ -1,5 +1,4 @@
 import "./app.css";
-
 import React from "react";
 
 import Home from "./pages/home/Home";
