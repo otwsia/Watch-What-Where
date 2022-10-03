@@ -42,20 +42,16 @@ const ListItem = (props) => {
             props.movie?.name ||
             props.movie?.original_name}
         </div>
-        {/* <div>
-          <span className={`${styles.stats} ${styles.border}`}>
-            {`${Math.round(props.movie.vote_average * 10)}%`}
-          </span>
-          <span className={`${styles.border} ${styles.stats}`}>rating</span>
-          <span className={`${styles.stats}`}>season/time</span>
-          <span className={`${styles.stats}`}>{props.movie.release_date}</span>
-        </div> */}
         <div className={`${styles.description}`}>
           {truncate(props.movie.overview, 130)}
         </div>
         <div>
           {props.movie.genre_ids.map((id) => {
-            return <span className={`${styles.genre}`}>{genre[id]}</span>;
+            return (
+              genre[id] && (
+                <span className={`${styles.genre}`}>{genre[id]}</span>
+              )
+            );
           })}
         </div>
       </div>

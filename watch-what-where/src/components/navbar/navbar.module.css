@@ -1,7 +1,7 @@
 .navbar {
   height: 50px;
   /* background-color: var(--main-color); */
-  color: white;
+  color: lightgray;
   padding: 0% 1%;
   align-items: center;
   z-index: 999;
@@ -21,8 +21,20 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  color: lightgray;
+  text-decoration: none;
 }
 
 .pointer {
   cursor: pointer;
+}
+
+.pointer:hover {
+  color: white;
+  border-bottom: 4px solid white;
+}
+
+.pointer:active,
+.pointer.active {
+  color: white;
 }

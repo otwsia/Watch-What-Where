@@ -1,19 +1,19 @@
-import styles from "./home.module.css";
+import styles from "./series.module.css";
 
 import React from "react";
 
 import Navbar from "../../components/navbar/Navbar";
 import Featured from "../../components/featured/Featured";
 import List from "../../components/list/List";
-import categoriesHome from "../../components/list/categoriesHome";
+import categoriesSeries from "../../components/list/categoriesSeries";
 
 const Series = () => {
   return (
-    <div className={`container-fluid ${styles.home}`}>
+    <div className={`container-fluid ${styles.series}`}>
       <Navbar />
-      <Featured category="Home" />
-      <List title="Trending" url={categoriesHome.trending} />
-      <List title="Top Rated" url={categoriesHome.topRated} />
+      <Featured category="Series" url={categoriesSeries.trending} />
+      <List title="Trending" url={categoriesSeries.trending} />
+      <List title="Top Rated" url={categoriesSeries.topRated} />
       {/* <List title="Action" url={categoriesHome.action} />
       <List title="Comedy" url={categoriesHome.comedy} />
       <List title="Horror" url={categoriesHome.horror} />

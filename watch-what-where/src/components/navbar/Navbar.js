@@ -2,6 +2,7 @@ import styles from "./navbar.module.css";
 import React, { useState } from "react";
 import logo from "./Watch.png";
 import { Search } from "@mui/icons-material";
+import { Link } from "react-router-dom";
 
 const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
@@ -23,9 +24,9 @@ const Navbar = () => {
           alt="website logo"
         />
       </div>
-      <div className={`${styles.flex} ${styles.pointer} col-1`}>Home</div>
-      <div className={`${styles.flex} ${styles.pointer} col-1`}>Series</div>
-      <div className={`${styles.flex} ${styles.pointer} col-1`}>Movies</div>
+      <Link className={`${styles.flex} ${styles.pointer} col-1`}>Home</Link>
+      <Link className={`${styles.flex} ${styles.pointer} col-1`}>Series</Link>
+      <Link className={`${styles.flex} ${styles.pointer} col-1`}>Movies</Link>
       <div className="col"></div>
       <div className={`${styles.flex} col-1`}>
         <Search className={`${styles.pointer}`} />

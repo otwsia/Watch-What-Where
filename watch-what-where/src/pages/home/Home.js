@@ -11,7 +11,7 @@ const Home = () => {
   return (
     <div className={`container-fluid ${styles.home}`}>
       <Navbar />
-      <Featured category="Home" />
+      <Featured category="Home" url={categoriesHome.trending} />
       <List title="Trending" url={categoriesHome.trending} />
       <List title="Top Rated" url={categoriesHome.topRated} />
       {/* <List title="Action" url={categoriesHome.action} />

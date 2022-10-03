@@ -1,14 +1,13 @@
 import styles from "./featured.module.css";
 import { InfoOutlined, PlayArrow } from "@mui/icons-material";
 import React, { useEffect, useState } from "react";
-import categoriesHome from "../list/categoriesHome";
 
 const Featured = (props) => {
   const [show, setShow] = useState("");
 
   useEffect(() => {
     const fetchPost = async () => {
-      const result = await fetch(categoriesHome.trending);
+      const result = await fetch(props.url);
       const data = await result.json();
       setShow(
         data.results[Math.floor(Math.random() * data.results.length - 1)]
@@ -16,7 +15,7 @@ const Featured = (props) => {
       return data;
     };
     fetchPost();
-  }, []);
+  }, [props.url]);
 
   const truncate = (string, n) => {
     return string?.length > n ? string.substr(0, n - 1) + "..." : string;
@@ -29,6 +28,10 @@ const Featured = (props) => {
           <span>{props.category === "Movies" ? "Movies" : "Series"}</span>
           <select name="genre" className={`${styles.genre}`}>
             <option>Genre</option>
+            <option>Action</option>
+            <option>Comedy</option>
+            <option>Horror</option>
+            <option>Romance</option>
           </select>
         </div>
       )}
