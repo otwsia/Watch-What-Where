@@ -24,9 +24,27 @@ const Navbar = () => {
           alt="website logo"
         />
       </div>
-      <Link className={`${styles.flex} ${styles.pointer} col-1`}>Home</Link>
-      <Link className={`${styles.flex} ${styles.pointer} col-1`}>Series</Link>
-      <Link className={`${styles.flex} ${styles.pointer} col-1`}>Movies</Link>
+      <Link
+        className={`${styles.flex} ${styles.pointer} col-1`}
+        activeClassName={styles.active}
+        to="/"
+      >
+        Home
+      </Link>
+      <Link
+        className={`${styles.flex} ${styles.pointer} col-1`}
+        activeClassName={styles.active}
+        to="/Series"
+      >
+        Series
+      </Link>
+      <Link
+        className={`${styles.flex} ${styles.pointer} col-1`}
+        activeClassName={styles.active}
+        to="/Movies"
+      >
+        Movies
+      </Link>
       <div className="col"></div>
       <div className={`${styles.flex} col-1`}>
         <Search className={`${styles.pointer}`} />

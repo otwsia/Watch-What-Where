@@ -2,7 +2,6 @@ import styles from "./series.module.css";
 
 import React from "react";
 
-import Navbar from "../../components/navbar/Navbar";
 import Featured from "../../components/featured/Featured";
 import List from "../../components/list/List";
 import categoriesSeries from "../../components/list/categoriesSeries";
@@ -10,7 +9,6 @@ import categoriesSeries from "../../components/list/categoriesSeries";
 const Series = () => {
   return (
     <div className={`container-fluid ${styles.series}`}>
-      <Navbar />
       <Featured category="Series" url={categoriesSeries.trending} />
       <List title="Trending" url={categoriesSeries.trending} />
       <List title="Top Rated" url={categoriesSeries.topRated} />

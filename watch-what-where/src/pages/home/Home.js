@@ -2,7 +2,6 @@ import styles from "./home.module.css";
 
 import React from "react";
 
-import Navbar from "../../components/navbar/Navbar";
 import Featured from "../../components/featured/Featured";
 import List from "../../components/list/List";
 import categoriesHome from "../../components/list/categoriesHome";
@@ -10,7 +9,6 @@ import categoriesHome from "../../components/list/categoriesHome";
 const Home = () => {
   return (
     <div className={`container-fluid ${styles.home}`}>
-      <Navbar />
       <Featured category="Home" url={categoriesHome.trending} />
       <List title="Trending" url={categoriesHome.trending} />
       <List title="Top Rated" url={categoriesHome.topRated} />

@@ -34,7 +34,6 @@
   border-bottom: 4px solid white;
 }
 
-.pointer:active,
-.pointer.active {
-  color: white;
+.active {
+  color: white !important;
 }

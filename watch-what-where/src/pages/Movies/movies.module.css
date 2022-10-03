@@ -1,0 +1,5 @@
+.movies {
+  background-color: var(--main-color);
+  padding: 0;
+  overflow: hidden;
+}
