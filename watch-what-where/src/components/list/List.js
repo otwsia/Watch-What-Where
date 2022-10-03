@@ -48,20 +48,12 @@ const List = (props) => {
           style={{ display: movieNumber > 0 ? "inline-block" : "none" }}
         />
         <div className={`${styles.box}`} ref={listRef}>
-          {console.log(movies)}
-          {movies.map((movie, i) => (
-            <ListItem key={i} index={Number(i)} movie={movie} />
-          ))}
-          {/* <ListItem index={0} />
-          <ListItem index={1} />
-          <ListItem index={2} />
-          <ListItem index={3} />
-          <ListItem index={4} />
-          <ListItem index={5} />
-          <ListItem index={6} />
-          <ListItem index={7} />
-          <ListItem index={8} />
-          <ListItem index={9} /> */}
+          {movies.map(
+            (movie, i) =>
+              movie.backdrop_path && (
+                <ListItem key={i} index={Number(i)} movie={movie} />
+              )
+          )}
         </div>
         <ArrowForwardIosOutlined
           className={`${styles.sliderArrow} ${styles.right}`}

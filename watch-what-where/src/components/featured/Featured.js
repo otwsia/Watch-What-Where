@@ -1,14 +1,14 @@
 import styles from "./featured.module.css";
 import { InfoOutlined, PlayArrow } from "@mui/icons-material";
 import React, { useEffect, useState } from "react";
-import categories from "../list/categories";
+import categoriesHome from "../list/categoriesHome";
 
 const Featured = (props) => {
   const [show, setShow] = useState("");
 
   useEffect(() => {
     const fetchPost = async () => {
-      const result = await fetch(categories.trending);
+      const result = await fetch(categoriesHome.trending);
       const data = await result.json();
       setShow(
         data.results[Math.floor(Math.random() * data.results.length - 1)]

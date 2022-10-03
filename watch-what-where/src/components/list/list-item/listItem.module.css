@@ -37,6 +37,7 @@
 .icons {
   display: flex;
   margin-bottom: 10px;
+  align-items: center;
 }
 
 .icon {
@@ -65,4 +66,5 @@
 .genre {
   font-size: 14px;
   color: lightgray;
+  margin-right: 10px;
 }
