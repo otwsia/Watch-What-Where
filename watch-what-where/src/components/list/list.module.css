@@ -11,7 +11,7 @@
 }
 
 .wrapper {
-  height: 100%;
+  height: 120px;
   position: relative;
 }
 
@@ -27,7 +27,7 @@
 
 .sliderArrow {
   width: 50px;
-  height: 100%;
+  height: 100% !important;
   background-color: rgb(22, 22, 22, 0.5);
   color: white;
   position: absolute;

@@ -1,6 +1,68 @@
 .item {
   width: 225px;
   height: 120px;
-  background-color: white;
+  background-color: var(--main-color);
   margin-right: 5px;
+  overflow: hidden;
+  cursor: pointer;
+  color: white;
+}
+
+.banner {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+
+.item:hover {
+  width: 325px;
+  height: 300px;
+  position: absolute;
+  top: -150px;
+  -webkit-box-shadow: 0px 0px 15px 0px rgba(255, 255, 255, 0.2);
+  box-shadow: 0px 0px 15px 0px rgba(255, 255, 255, 0.1);
+}
+
+.item:hover .banner,
+.item.hover .banner {
+  height: 140px;
+}
+
+.itemInfo {
+  display: flex;
+  flex-direction: column;
+  padding: 5px;
+}
+
+.icons {
+  display: flex;
+  margin-bottom: 10px;
+}
+
+.icon {
+  border: 2px solid white;
+  padding: 5px;
+  border-radius: 50%;
+  margin-right: 10px;
+  font-size: 16px;
+  font-weight: 600;
+  color: white;
+}
+.stats {
+  margin-right: 10px;
+}
+
+.border {
+  border: 1px solid gray;
+  padding: 1px 3px;
+}
+
+.description {
+  font-size: 13px;
+  margin-bottom: 10px;
+}
+
+.genre {
+  font-size: 14px;
+  color: lightgray;
 }

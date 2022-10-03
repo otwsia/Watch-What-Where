@@ -4,11 +4,12 @@ import {
   ArrowForwardIosOutlined,
 } from "@mui/icons-material";
 
-import React, { useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import ListItem from "./list-item/ListItem";
 
-const List = () => {
+const List = (props) => {
   const [movieNumber, setMovieNumber] = useState(0);
+  const [movies, setMovies] = useState([]);
   const listRef = useRef();
 
   const handleClickLeft = () => {
@@ -26,9 +27,20 @@ const List = () => {
       listRef.current.style.transform = `translateX(${-230 + distance}px)`;
     }
   };
+
+  useEffect(() => {
+    const fetchPost = async () => {
+      const result = await fetch(props.url);
+      const data = await result.json();
+      setMovies(data.results);
+      return data;
+    };
+    fetchPost();
+  }, [props.url]);
+
   return (
     <div className={`${styles.list}`}>
-      <span className={`${styles.listTitle}`}>list Title</span>
+      <span className={`${styles.listTitle}`}>{props.title}</span>
       <div className={`${styles.wrapper}`}>
         <ArrowBackIosOutlined
           className={`${styles.sliderArrow} ${styles.left} `}
@@ -36,16 +48,20 @@ const List = () => {
           style={{ display: movieNumber > 0 ? "inline-block" : "none" }}
         />
         <div className={`${styles.box}`} ref={listRef}>
-          <ListItem />
-          <ListItem />
-          <ListItem />
-          <ListItem />
-          <ListItem />
-          <ListItem />
-          <ListItem />
-          <ListItem />
-          <ListItem />
-          <ListItem />
+          {console.log(movies)}
+          {movies.map((movie, i) => (
+            <ListItem key={i} index={Number(i)} movie={movie} />
+          ))}
+          {/* <ListItem index={0} />
+          <ListItem index={1} />
+          <ListItem index={2} />
+          <ListItem index={3} />
+          <ListItem index={4} />
+          <ListItem index={5} />
+          <ListItem index={6} />
+          <ListItem index={7} />
+          <ListItem index={8} />
+          <ListItem index={9} /> */}
         </div>
         <ArrowForwardIosOutlined
           className={`${styles.sliderArrow} ${styles.right}`}
