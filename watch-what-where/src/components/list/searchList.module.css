@@ -1,0 +1,20 @@
+.box1 {
+  width: 100%;
+  margin-top: 70px;
+  margin-bottom: 10px;
+  display: flex;
+}
+
+.searchTitle {
+  color: white;
+  font-size: 20px;
+  font-weight: 500;
+  margin-left: 20px;
+}
+
+.box2 {
+  width: 100%;
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+}

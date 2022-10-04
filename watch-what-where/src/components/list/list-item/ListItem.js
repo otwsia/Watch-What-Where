@@ -82,15 +82,16 @@ const ListItem = (props) => {
             {truncate(props.movie.overview, 130)}
           </div>
           <div>
-            {props.movie.genre_ids.map((id, i) => {
-              return (
-                genre[id] && (
-                  <span className={`${styles.genre}`} key={i}>
-                    {genre[id]}
-                  </span>
-                )
-              );
-            })}
+            {props.movie.genre_ids &&
+              props.movie.genre_ids.map((id, i) => {
+                return (
+                  genre[id] && (
+                    <span className={`${styles.genre}`} key={i}>
+                      {genre[id]}
+                    </span>
+                  )
+                );
+              })}
           </div>
         </div>
       </div>

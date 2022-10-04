@@ -27,6 +27,7 @@ const Navbar = (props) => {
   };
 
   const handleCatChange = () => {
+    setSearchbar(false);
     props.setSearchTag("");
   };
 
@@ -81,7 +82,7 @@ const Navbar = (props) => {
           <input
             type="text"
             className={styles.searchbar}
-            placeholder="Title/People"
+            placeholder="Title / People"
             onChange={handleChange}
             value={searchInput}
           ></input>

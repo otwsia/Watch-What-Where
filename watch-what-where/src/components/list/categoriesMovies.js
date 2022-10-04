@@ -7,6 +7,7 @@ const categoriesMovies = {
   comedy: `https://api.themoviedb.org/3/discover/movie?api_key=${API_key}&with_genres=35`,
   horror: `https://api.themoviedb.org/3/discover/movie?api_key=${API_key}&with_genres=27`,
   romance: `https://api.themoviedb.org/3/discover/movie?api_key=${API_key}&with_genres=10749`,
+  movieSearch: `https://api.themoviedb.org/3/search/movie?api_key=${API_key}&query=`,
 };
 
 export default categoriesMovies;
