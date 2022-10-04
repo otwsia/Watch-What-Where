@@ -1,7 +1,7 @@
 import styles from "./listItem.module.css";
 
 import React, { useState } from "react";
-import { Add, PlayArrow } from "@mui/icons-material";
+import { InfoOutlined, PlayCircleOutlined } from "@mui/icons-material";
 import genre from "../genre";
 
 const ListItem = (props) => {
@@ -64,8 +64,8 @@ const ListItem = (props) => {
       {console.log(trailer)} */}
         <div className={`${styles.itemInfo}`}>
           <div className={`${styles.icons}`}>
-            <PlayArrow className={`${styles.icon}`} />
-            <Add className={`${styles.icon}`} />
+            <PlayCircleOutlined className={`${styles.icon}`} />
+            <InfoOutlined className={`${styles.icon}`} />
             <span className={`${styles.stats} ${styles.border}`}>
               {`${Math.round(props.movie.vote_average * 10)}%`}
             </span>

@@ -9,6 +9,7 @@
 }
 
 .scrolled {
+  animation: fade-in 2000ms;
   background-color: var(--main-color);
 }
 
