@@ -34,7 +34,7 @@
   border-bottom: 4px solid white;
 }
 
-.active {
+a.active {
   color: white;
   font-weight: bold;
 }

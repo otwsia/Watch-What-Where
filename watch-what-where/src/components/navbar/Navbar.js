@@ -4,16 +4,17 @@ import logo from "./Watch.png";
 import { Search } from "@mui/icons-material";
 import { NavLink } from "react-router-dom";
 
-const Navbar = () => {
+const Navbar = (props) => {
   const [scrolled, setScrolled] = useState(false);
   const [searchbar, setSearchbar] = useState(false);
   const [searchInput, setSearchInput] = useState("");
+
   window.onscroll = () => {
     setScrolled(window.pageYOffset === 0 ? false : true);
     return () => (window.onscroll = null);
   };
 
-  const handleClick = () => {
+  const handleSearch = () => {
     if (searchbar === false) {
       setSearchbar(true);
     } else {
@@ -23,6 +24,16 @@ const Navbar = () => {
 
   const handleChange = (e) => {
     setSearchInput(e.target.value);
+  };
+
+  const handleCatChange = () => {
+    props.setSearchTag("");
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    props.setSearchTag(searchInput);
+    setSearchInput("");
   };
 
   return (
@@ -41,13 +52,16 @@ const Navbar = () => {
       <NavLink
         className={`${styles.flex} ${styles.pointer} ${styles.link} col-1`}
         activeClassName={styles.active}
+        onClick={handleCatChange}
         to="/"
+        exact
       >
         Home
       </NavLink>
       <NavLink
         className={`${styles.flex} ${styles.pointer} ${styles.link} col-1`}
         activeClassName={styles.active}
+        onClick={handleCatChange}
         to="/Series"
       >
         Series
@@ -55,22 +69,24 @@ const Navbar = () => {
       <NavLink
         className={`${styles.flex} ${styles.pointer} ${styles.link} col-1`}
         activeClassName={styles.active}
+        onClick={handleCatChange}
         to="/Movies"
       >
         Movies
       </NavLink>
       <div className="col"></div>
-      <div className={`${styles.flex} col-1`}>
-        <Search className={`${styles.pointer}`} onClick={handleClick} />
+      <form className={`${styles.flex} col-1`} onSubmit={handleSubmit}>
+        <Search className={`${styles.pointer}`} onClick={handleSearch} />
         {searchbar && (
           <input
             type="text"
             className={styles.searchbar}
             placeholder="Title/People"
             onChange={handleChange}
+            value={searchInput}
           ></input>
         )}
-      </div>
+      </form>
     </div>
   );
 };

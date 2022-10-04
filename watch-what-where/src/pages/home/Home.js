@@ -6,7 +6,7 @@ import Featured from "../../components/featured/Featured";
 import List from "../../components/list/List";
 import categoriesHome from "../../components/list/categoriesHome";
 
-const Home = () => {
+const Home = (props) => {
   return (
     <div className={`container-fluid ${styles.home}`}>
       <Featured category="Home" url={categoriesHome.trending} />

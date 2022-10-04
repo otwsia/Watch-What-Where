@@ -1,6 +1,6 @@
 import styles from "./listItem.module.css";
 
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { Add, PlayArrow } from "@mui/icons-material";
 import genre from "../genre";
 
