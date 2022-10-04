@@ -21,17 +21,25 @@ const Featured = (props) => {
     return string?.length > n ? string.substr(0, n - 1) + "..." : string;
   };
 
+  const handleChange = (e) => {
+    props.handleGenreChange(e.target.value);
+  };
+
   return (
     <div className={`${styles.featured}`}>
       {props.category !== "Home" && (
         <div className={`${styles.category}`}>
           <span>{props.category === "Movies" ? "Movies" : "Series"}</span>
-          <select name="genre" className={`${styles.genre}`}>
-            <option>Genre</option>
-            <option>Action</option>
-            <option>Comedy</option>
-            <option>Horror</option>
-            <option>Romance</option>
+          <select
+            name="genre"
+            className={`${styles.genre}`}
+            onChange={handleChange}
+          >
+            <option value="genre">Genre</option>
+            <option value="action">Action</option>
+            <option value="comedy">Comedy</option>
+            <option value="horror">Horror</option>
+            <option value="romance">Romance</option>
           </select>
         </div>
       )}

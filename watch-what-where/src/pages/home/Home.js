@@ -10,12 +10,8 @@ const Home = () => {
   return (
     <div className={`container-fluid ${styles.home}`}>
       <Featured category="Home" url={categoriesHome.trending} />
-      <List title="Trending" url={categoriesHome.trending} />
-      <List title="Top Rated" url={categoriesHome.topRated} />
-      {/* <List title="Action" url={categoriesHome.action} />
-      <List title="Comedy" url={categoriesHome.comedy} />
-      <List title="Horror" url={categoriesHome.horror} />
-      <List title="Romance" url={categoriesHome.romance} /> */}
+      <List title="Trending" category="movie" url={categoriesHome.trending} />
+      <List title="Top Rated" category="movie" url={categoriesHome.topRated} />
     </div>
   );
 };

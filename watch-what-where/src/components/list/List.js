@@ -51,7 +51,12 @@ const List = (props) => {
           {movies.map(
             (movie, i) =>
               movie.backdrop_path && (
-                <ListItem key={i} index={Number(i)} movie={movie} />
+                <ListItem
+                  key={i}
+                  index={Number(i)}
+                  movie={movie}
+                  category={props.category}
+                />
               )
           )}
         </div>

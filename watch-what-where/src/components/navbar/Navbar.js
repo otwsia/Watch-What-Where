@@ -2,13 +2,27 @@ import styles from "./navbar.module.css";
 import React, { useState } from "react";
 import logo from "./Watch.png";
 import { Search } from "@mui/icons-material";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
+  const [searchbar, setSearchbar] = useState(false);
+  const [searchInput, setSearchInput] = useState("");
   window.onscroll = () => {
     setScrolled(window.pageYOffset === 0 ? false : true);
     return () => (window.onscroll = null);
+  };
+
+  const handleClick = () => {
+    if (searchbar === false) {
+      setSearchbar(true);
+    } else {
+      setSearchbar(false);
+    }
+  };
+
+  const handleChange = (e) => {
+    setSearchInput(e.target.value);
   };
 
   return (
@@ -24,30 +38,38 @@ const Navbar = () => {
           alt="website logo"
         />
       </div>
-      <Link
-        className={`${styles.flex} ${styles.pointer} col-1`}
+      <NavLink
+        className={`${styles.flex} ${styles.pointer} ${styles.link} col-1`}
         activeClassName={styles.active}
         to="/"
       >
         Home
-      </Link>
-      <Link
-        className={`${styles.flex} ${styles.pointer} col-1`}
+      </NavLink>
+      <NavLink
+        className={`${styles.flex} ${styles.pointer} ${styles.link} col-1`}
         activeClassName={styles.active}
         to="/Series"
       >
         Series
-      </Link>
-      <Link
-        className={`${styles.flex} ${styles.pointer} col-1`}
+      </NavLink>
+      <NavLink
+        className={`${styles.flex} ${styles.pointer} ${styles.link} col-1`}
         activeClassName={styles.active}
         to="/Movies"
       >
         Movies
-      </Link>
+      </NavLink>
       <div className="col"></div>
       <div className={`${styles.flex} col-1`}>
-        <Search className={`${styles.pointer}`} />
+        <Search className={`${styles.pointer}`} onClick={handleClick} />
+        {searchbar && (
+          <input
+            type="text"
+            className={styles.searchbar}
+            placeholder="Title/People"
+            onChange={handleChange}
+          ></input>
+        )}
       </div>
     </div>
   );
