@@ -10,6 +10,7 @@ import ListItem from "./list-item/ListItem";
 const List = (props) => {
   const [movieNumber, setMovieNumber] = useState(0);
   const [movies, setMovies] = useState([]);
+  const [hovered, setHovered] = useState(false);
   const listRef = useRef();
 
   const handleClickLeft = () => {
@@ -39,13 +40,23 @@ const List = (props) => {
   }, [props.url]);
 
   return (
-    <div className={`${styles.list}`}>
+    <div
+      className={`${styles.list}`}
+      onMouseEnter={() => {
+        setHovered(true);
+      }}
+      onMouseLeave={() => {
+        setHovered(false);
+      }}
+    >
       <span className={`${styles.listTitle}`}>{props.title}</span>
       <div className={`${styles.wrapper}`}>
         <ArrowBackIosOutlined
           className={`${styles.sliderArrow} ${styles.left} `}
           onClick={handleClickLeft}
-          style={{ display: movieNumber > 0 ? "inline-block" : "none" }}
+          style={{
+            display: movieNumber > 0 && hovered ? "inline-block" : "none",
+          }}
         />
         <div className={`${styles.box}`} ref={listRef}>
           {movies.map(
@@ -63,6 +74,7 @@ const List = (props) => {
         <ArrowForwardIosOutlined
           className={`${styles.sliderArrow} ${styles.right}`}
           onClick={handleClickRight}
+          style={{ display: hovered ? "inline-block" : "none" }}
         />
       </div>
     </div>
