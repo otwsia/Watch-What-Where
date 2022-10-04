@@ -64,8 +64,8 @@ const Featured = (props) => {
             <span>Info</span>
           </button>
         </div>
-        <div className={`${styles.fade}`}></div>
       </div>
+      <div className={`${styles.fade}`}></div>
     </div>
   );
 };
