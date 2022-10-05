@@ -22,30 +22,7 @@ const Overlay = (props) => {
 
   return (
     <div className={styles.backdrop}>
-      {/* top half */}
-      <img className={`${styles.banner}`} src={props.movie.backdrop_path} />
-      <Cancel onClick={props.handleClose} />
-      {/* bottom half */}
-      <div className={`${styles.info}`}>
-        {/* bottom left */}
-        <div className={`${styles.left}`}>
-          <div className={`${styles.icons}`}>
-            <button className={`${styles.trailer}`}>
-              <PlayArrow />
-              <span>Trailer</span>
-            </button>
-            <span className={`${styles.stats} ${styles.border}`}>
-              {`${Math.round(props.movie.vote_average * 10)}%`}
-            </span>
-            <span className={`${styles.stats}`}>
-              {year(props.movie.release_date)}
-            </span>
-          </div>
-        </div>
-        {/* bottom right */}
-        <div className={`${styles.right}`}></div>
-      </div>
-      {/* border close */}
+      <div className={styles.borderClose}></div>
     </div>
   );
 };
