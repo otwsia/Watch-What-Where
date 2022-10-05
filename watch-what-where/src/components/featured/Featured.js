@@ -94,17 +94,18 @@ const Featured = (props) => {
             }
           />
         )}
-        {/* {infoModal && (
+        {infoModal && (
           <InfoModal
             id={show.id}
             handleClose={handleClose}
+            handleTrailer={handleTrailer}
             category={
               props.category === "home" || props.category === "movie"
                 ? "movie"
                 : "tv"
             }
           />
-        )} */}
+        )}
         <div className="d-flex">
           <button
             className={`${styles.button} ${styles.trailer}`}

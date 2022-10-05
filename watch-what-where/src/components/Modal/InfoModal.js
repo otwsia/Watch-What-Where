@@ -15,6 +15,8 @@ const Overlay = (props) => {
       const result = await fetch(url);
       const data = await result.json();
       setDetails(data);
+      console.log(props.id);
+      console.log(details);
       return data;
     };
     fetchPost();
@@ -22,7 +24,56 @@ const Overlay = (props) => {
 
   return (
     <div className={styles.backdrop}>
-      <div className={styles.borderClose}></div>
+      <img
+        className={`${styles.banner}`}
+        src={`https://image.tmdb.org/t/p/original${details.backdrop_path}`}
+      />
+      <Cancel onClick={props.handleClose} className={styles.close} />
+
+      <div className={styles.bottom}>
+        <div className={styles.bottomLeft}>
+          <h1 className={`${styles.title}`}>
+            {details?.title || details?.name || details?.original_name}
+          </h1>
+          <div className={styles.info}>
+            <button
+              className={`${styles.button} ${styles.trailer}`}
+              onClick={props.handleTrailer}
+            >
+              <PlayArrow />
+              <span>Trailer</span>
+            </button>
+            <span className={`${styles.stats} ${styles.border}`}>
+              {`${Math.round(details.vote_average * 10)}%`}
+            </span>
+            <span className={`${styles.stats} ${styles.border}`}>
+              {props.category === "movie"
+                ? `${details.runtime}m`
+                : `${details.number_of_seasons} Seasons`}
+            </span>
+            <span className={`${styles.stats} ${styles.border}`}>
+              {props.category === "movie"
+                ? year(details.release_date)
+                : year(details.first_air_date)}
+            </span>
+          </div>
+          <p className={styles.overview}>{details?.overview}</p>
+          <div className={styles.genres}>
+            {details.genres &&
+              details.genres.map((item, i) => {
+                return (
+                  item.name && (
+                    <span className={`${styles.genre}`} key={i}>
+                      {item.name}
+                    </span>
+                  )
+                );
+              })}
+          </div>
+        </div>
+      </div>
+
+      {/* <div className={styles.infoBorder} onClick={props.handleClose}></div> */}
     </div>
   );
 };
@@ -31,7 +82,12 @@ const InfoModal = (props) => {
   return (
     <>
       {ReactDOM.createPortal(
-        <Overlay movie={props.movie} handleClose={props.handleClose} />,
+        <Overlay
+          handleClose={props.handleClose}
+          category={props.category}
+          id={props.id}
+          handleTrailer={props.handleTrailer}
+        />,
         document.querySelector("#modal-root")
       )}
     </>

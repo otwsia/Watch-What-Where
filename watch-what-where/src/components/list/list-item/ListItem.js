@@ -31,11 +31,7 @@ const ListItem = (props) => {
       <div
         className={`${styles.item}`}
         style={{ left: hovered && props.index * 225 - 50 + props.index * 2.5 }}
-        onMouseEnter={() =>
-          setHovered(
-            `https://api.themoviedb.org/3/${props.category}/${props.movie.id}/videos?api_key=decb776a782c2ad315d5469877220f3d`
-          )
-        }
+        onMouseEnter={() => setHovered(true)}
         onMouseLeave={() => setHovered("")}
       >
         <img

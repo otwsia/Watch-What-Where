@@ -1,0 +1,134 @@
+.backdrop {
+  display: flex;
+  justify-content: center;
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  width: 60%;
+  height: 75%;
+  z-index: 99;
+  border-radius: 5px;
+  background-color: var(--main-color);
+  border-radius: 5px;
+}
+
+.banner {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 50%;
+  width: 100%;
+  object-fit: cover;
+  margin: 0;
+  padding: 0;
+}
+
+.close {
+  color: rgba(255, 255, 255, 0.5);
+  z-index: 100;
+  position: absolute;
+  right: 0;
+  top: 0;
+  transform: scale(1.5);
+  margin: 10px;
+}
+
+.close:hover {
+  color: white;
+  cursor: pointer;
+}
+
+.bottom {
+  position: absolute;
+  top: 50%;
+  width: 100%;
+  height: 50%;
+}
+
+.bottomLeft {
+  position: absolute;
+  width: 60%;
+  height: 100%;
+  background-color: var(--main-color);
+}
+
+.bottomRight {
+  position: absolute;
+  width: 40%;
+  height: 100%;
+  background-color: gray;
+}
+
+.title {
+  font-size: 50px;
+  font-weight: 500;
+  color: white;
+  z-index: 101;
+  margin-left: 2%;
+  margin-right: 2%;
+  text-align: justify;
+}
+
+.info {
+  display: flex;
+  align-items: center;
+  margin: 2%;
+  font-weight: 500;
+}
+.button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 101;
+  margin-right: 2%;
+  height: 32px;
+}
+
+.trailer {
+  background-color: white;
+  color: var(--main-color);
+}
+
+.stats {
+  display: flex;
+  color: white;
+}
+
+.border {
+  border: 1px solid white;
+  padding: 0.5% 1%;
+  margin-right: 2%;
+  border-radius: 5px;
+}
+
+.overview {
+  color: lightgray;
+  margin: 3% 2% 3% 2%;
+  text-align: justify;
+}
+
+.genres {
+  color: gray;
+  margin-left: 2%;
+  margin-right: 2%;
+}
+.genre {
+  margin-right: 1%;
+}
+.infoBorder {
+  background-color: rgba(37, 37, 37, 0.5);
+  width: 1000%;
+  height: 1000%;
+  z-index: 50 !important;
+  position: fixed;
+  top: 0;
+  left: 0;
+  margin: auto;
+}

@@ -1,6 +1,4 @@
-{/* top half */}
-      <img className={`${styles.banner}`} src={props.movie.backdrop_path} />
-      <Cancel onClick={props.handleClose} />
+
       {/* bottom half */}
       <div className={`${styles.info}`}>
         {/* bottom left */}
