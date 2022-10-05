@@ -1,9 +1,11 @@
 import styles from "./featured.module.css";
 import { InfoOutlined, PlayArrow } from "@mui/icons-material";
 import React, { useEffect, useState } from "react";
+import TrailerModal from "../Modal/TrailerModal";
 
 const Featured = (props) => {
   const [show, setShow] = useState("");
+  const [trailerModal, setTrailerModal] = useState(false);
 
   useEffect(() => {
     const fetchPost = async () => {
@@ -25,11 +27,23 @@ const Featured = (props) => {
     props.handleGenreChange(e.target.value);
   };
 
+  const handleTrailer = () => {
+    if (trailerModal === false) {
+      setTrailerModal(true);
+    } else {
+      setTrailerModal(false);
+    }
+  };
+
+  const handleClose = () => {
+    setTrailerModal(false);
+  };
+
   return (
     <div className={`${styles.featured}`}>
-      {props.category !== "Home" && (
+      {props.category !== "home" && (
         <div className={`${styles.category}`}>
-          <span>{props.category === "Movies" ? "Movies" : "Series"}</span>
+          <span>{props.category === "movie" ? "Movies" : "Series"}</span>
           <select
             name="genre"
             className={`${styles.genre}`}
@@ -54,8 +68,22 @@ const Featured = (props) => {
         </h1>
         <br />
         <span className="my-20">{truncate(show?.overview, 150)}</span>
+        {trailerModal && (
+          <TrailerModal
+            movie={show}
+            handleClose={handleClose}
+            category={
+              props.category === "home" || props.category === "movie"
+                ? "movie"
+                : "tv"
+            }
+          />
+        )}
         <div className="d-flex">
-          <button className={`${styles.button} ${styles.trailer}`}>
+          <button
+            className={`${styles.button} ${styles.trailer}`}
+            onClick={handleTrailer}
+          >
             <PlayArrow />
             <span>Trailer</span>
           </button>

@@ -84,3 +84,7 @@
   color: lightgray;
   margin-right: 10px;
 }
+
+.modal {
+  position: relative;
+}

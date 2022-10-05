@@ -1,0 +1,65 @@
+.backdrop {
+  display: flex;
+  justify-content: center;
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  width: 75%;
+  height: 75%;
+  z-index: 99;
+  border-radius: 5px;
+}
+
+.trailer {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  min-width: 100%;
+  min-height: 100%;
+  width: auto;
+  height: auto;
+  z-index: 100;
+  background-size: cover;
+  overflow: hidden;
+  border-radius: 5px;
+}
+
+.close {
+  position: absolute;
+  left: 0;
+  right: 0;
+  margin-left: auto;
+  margin-right: auto;
+  top: 85px;
+  color: transparent;
+  z-index: 101;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 50px;
+  padding: 0;
+}
+
+.svg {
+  transform: scale(2);
+}
+
+.close:hover {
+  cursor: pointer;
+  color: rgb(255, 255, 255, 0.7);
+}
+
+.trailerBorder {
+  background-color: rgba(37, 37, 37, 0.5);
+  width: 1000%;
+  height: 1000%;
+  z-index: 90;
+  position: fixed;
+  top: 0;
+  left: 0;
+  margin: auto;
+}

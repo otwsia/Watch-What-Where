@@ -3,30 +3,29 @@ import styles from "./listItem.module.css";
 import React, { useState } from "react";
 import { InfoOutlined, PlayCircleOutlined } from "@mui/icons-material";
 import genre from "../genre";
+import TrailerModal from "../../Modal/TrailerModal";
 
 const ListItem = (props) => {
   const [hovered, setHovered] = useState("");
-  //   const [trailer, setTrailer] = useState("");
+  const [trailerModal, setTrailerModal] = useState(false);
   const truncate = (string, n) => {
     return string?.length > n ? string.substr(0, n - 1) + "..." : string;
+  };
+  const handleTrailer = () => {
+    if (trailerModal === false) {
+      setTrailerModal(true);
+    } else {
+      setTrailerModal(false);
+    }
+  };
+
+  const handleClose = () => {
+    setTrailerModal(false);
   };
 
   const year = (string) => {
     return string && string.substr(0, 4);
   };
-
-  //   useEffect(() => {
-  //     const fetchPost = async () => {
-  //       const result = await fetch(hovered);
-  //       console.log(result);
-  //       const data = await result.json();
-  //       console.log(data);
-  //       setTrailer(data.results[0]);
-  //       return data;
-  //     };
-  //     fetchPost();
-  //   }, [hovered]);
-
   return (
     <div className={styles.itemContainer}>
       <div
@@ -44,27 +43,12 @@ const ListItem = (props) => {
           alt="movie banner"
           className={`${styles.banner}`}
         />
-        {/* {hovered &&
-        (trailer.site === "YouTube" ? (
-          <video
-            className={styles.video}
-            src={`https://www.youtube.com/watch?v=${trailer.key}`}
-            autoPlay={true}
-            loop
-          />
-        ) : (
-          <video
-            className={styles.video}
-            src={`https://vimeo.com/${trailer.key}`}
-            autoPlay={true}
-            loop
-          />
-        ))}
-      {console.log(hovered)}
-      {console.log(trailer)} */}
         <div className={`${styles.itemInfo}`}>
           <div className={`${styles.icons}`}>
-            <PlayCircleOutlined className={`${styles.icon}`} />
+            <PlayCircleOutlined
+              className={`${styles.icon}`}
+              onClick={handleTrailer}
+            />
             <InfoOutlined className={`${styles.icon}`} />
             <span className={`${styles.stats} ${styles.border}`}>
               {`${Math.round(props.movie.vote_average * 10)}%`}
@@ -95,6 +79,13 @@ const ListItem = (props) => {
           </div>
         </div>
       </div>
+      {trailerModal && (
+        <TrailerModal
+          movie={props.movie}
+          handleClose={handleClose}
+          category={props.category}
+        />
+      )}
     </div>
   );
 };

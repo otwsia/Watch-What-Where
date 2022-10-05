@@ -17,21 +17,37 @@ const Movies = (props) => {
       {!props.searchTag && (
         <>
           <Featured
-            category="Movies"
+            category="movie"
             url={categoriesMovies.trending}
             handleGenreChange={handleGenreChange}
           />
           {genre === "action" && (
-            <List title="Action" url={categoriesMovies.action} />
+            <List
+              title="Action"
+              url={categoriesMovies.action}
+              category="movie"
+            />
           )}
           {genre === "comedy" && (
-            <List title="Comedy" url={categoriesMovies.comedy} />
+            <List
+              title="Comedy"
+              url={categoriesMovies.comedy}
+              category="movie"
+            />
           )}
           {genre === "horror" && (
-            <List title="Horror" url={categoriesMovies.horror} />
+            <List
+              title="Horror"
+              url={categoriesMovies.horror}
+              category="movie"
+            />
           )}
           {genre === "romance" && (
-            <List title="Romance" url={categoriesMovies.romance} />
+            <List
+              title="Romance"
+              url={categoriesMovies.romance}
+              category="movie"
+            />
           )}
           <List
             title="Trending"

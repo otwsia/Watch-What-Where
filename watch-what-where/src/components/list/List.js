@@ -22,7 +22,7 @@ const List = (props) => {
   };
 
   const handleClickRight = () => {
-    if (movieNumber < 5) {
+    if (movieNumber < 10) {
       setMovieNumber(movieNumber + 1);
       let distance = listRef.current.getBoundingClientRect().x - 50;
       listRef.current.style.transform = `translateX(${-230 + distance}px)`;
