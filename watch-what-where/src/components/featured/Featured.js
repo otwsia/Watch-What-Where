@@ -2,10 +2,12 @@ import styles from "./featured.module.css";
 import { InfoOutlined, PlayArrow } from "@mui/icons-material";
 import React, { useEffect, useState } from "react";
 import TrailerModal from "../Modal/TrailerModal";
+import InfoModal from "../Modal/InfoModal";
 
 const Featured = (props) => {
   const [show, setShow] = useState("");
   const [trailerModal, setTrailerModal] = useState(false);
+  const [infoModal, setInfoModal] = useState(false);
 
   useEffect(() => {
     const fetchPost = async () => {
@@ -35,8 +37,17 @@ const Featured = (props) => {
     }
   };
 
+  const handleInfo = () => {
+    if (infoModal === false) {
+      setInfoModal(true);
+    } else {
+      setInfoModal(false);
+    }
+  };
+
   const handleClose = () => {
     setTrailerModal(false);
+    setInfoModal(false);
   };
 
   return (
@@ -79,6 +90,17 @@ const Featured = (props) => {
             }
           />
         )}
+        {/* {infoModal && (
+          <InfoModal
+            id={show.id}
+            handleClose={handleClose}
+            category={
+              props.category === "home" || props.category === "movie"
+                ? "movie"
+                : "tv"
+            }
+          />
+        )} */}
         <div className="d-flex">
           <button
             className={`${styles.button} ${styles.trailer}`}
@@ -87,7 +109,10 @@ const Featured = (props) => {
             <PlayArrow />
             <span>Trailer</span>
           </button>
-          <button className={`${styles.button} ${styles.moreInfo}`}>
+          <button
+            className={`${styles.button} ${styles.moreInfo}`}
+            onClick={handleInfo}
+          >
             <InfoOutlined />
             <span>Info</span>
           </button>

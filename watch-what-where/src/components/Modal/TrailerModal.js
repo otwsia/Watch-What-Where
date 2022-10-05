@@ -25,6 +25,7 @@ const Overlay = (props) => {
           height="315"
           src={`https://www.youtube.com/embed/${trailer.key}`}
           className={styles.trailer}
+          title="YouTube"
         ></iframe>
       ) : (
         <iframe
@@ -32,6 +33,7 @@ const Overlay = (props) => {
           height="315"
           src={`https://player.vimeo.com/video/${trailer.key}`}
           className={styles.trailer}
+          title="Vimeo"
         ></iframe>
       )}
       <div className={styles.close}>

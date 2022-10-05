@@ -24,7 +24,7 @@ const ListItem = (props) => {
   };
 
   const year = (string) => {
-    return string && string.substr(0, 4);
+    return string && string.substr(0, 7);
   };
   return (
     <div className={styles.itemContainer}>
@@ -54,7 +54,7 @@ const ListItem = (props) => {
               {`${Math.round(props.movie.vote_average * 10)}%`}
             </span>
             <span className={`${styles.stats}`}>
-              {props.movie.category === "movie"
+              {props.category === "movie"
                 ? year(props.movie.release_date)
                 : year(props.movie.first_air_date)}
             </span>
