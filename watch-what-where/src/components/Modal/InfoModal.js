@@ -15,8 +15,6 @@ const Overlay = (props) => {
       const result = await fetch(url);
       const data = await result.json();
       setDetails(data);
-      console.log(props.id);
-      console.log(details);
       return data;
     };
     fetchPost();
@@ -27,6 +25,7 @@ const Overlay = (props) => {
       <img
         className={`${styles.banner}`}
         src={`https://image.tmdb.org/t/p/original${details.backdrop_path}`}
+        alt="movie banner"
       />
       <Cancel onClick={props.handleClose} className={styles.close} />
 
@@ -56,6 +55,16 @@ const Overlay = (props) => {
                 ? year(details.release_date)
                 : year(details.first_air_date)}
             </span>
+            <div className={`${styles.stats} ${styles.border}`}>
+              {details.spoken_languages &&
+                details.spoken_languages.map((language, i) => {
+                  return (
+                    language.english_name && (
+                      <span key={i}>{language.english_name}</span>
+                    )
+                  );
+                })}
+            </div>
           </div>
           <p className={styles.overview}>{details?.overview}</p>
           <div className={styles.genres}>

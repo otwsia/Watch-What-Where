@@ -13,7 +13,7 @@ const Featured = (props) => {
     const fetchPost = async () => {
       const result = await fetch(props.url);
       const data = await result.json();
-      const randomFeature =
+      let randomFeature =
         data.results[Math.floor(Math.random() * data.results.length - 1)];
       if (typeof randomFeature.backdrop_path === "undefined") {
         randomFeature =
