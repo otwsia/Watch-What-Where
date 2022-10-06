@@ -26,6 +26,19 @@
   padding: 0;
 }
 
+.fade {
+  position: absolute;
+  width: 100%;
+  height: 20%;
+  top: 30%;
+  background-image: linear-gradient(
+    180deg,
+    transparent,
+    rgba(37, 37, 37, 0.6),
+    #0b0b0b
+  );
+}
+
 .close {
   color: rgba(255, 255, 255, 0.5);
   z-index: 100;
@@ -53,13 +66,6 @@
   width: 60%;
   height: 100%;
   background-color: var(--main-color);
-}
-
-.bottomRight {
-  position: absolute;
-  width: 40%;
-  height: 100%;
-  background-color: gray;
 }
 
 .title {
@@ -107,6 +113,15 @@
   margin-right: 2%;
   border-radius: 5px;
 }
+.language {
+  color: gray;
+}
+.space {
+  margin-right: 5%;
+  padding-left: 1%;
+  padding-right: 1%;
+  display: inline-block;
+}
 
 .overview {
   color: lightgray;
@@ -119,14 +134,68 @@
   margin-left: 2%;
   margin-right: 2%;
 }
+
 .genre {
-  margin-right: 1%;
+  margin-right: 5%;
+}
+
+.bottomRight {
+  position: absolute;
+  width: 40%;
+  height: 100%;
+  bottom: 0;
+  right: 0;
+  background-color: var(--main-color);
+}
+
+.regionInput {
+  position: absolute;
+  top: 75px;
+  left: 100px;
+  color: gray;
+}
+
+.regionInput:hover {
+  color: white;
+}
+
+.input {
+  background-color: transparent;
+  border: 1px solid gray;
+  margin-left: 20px;
+  color: lightgray;
+}
+
+.input:hover {
+  border: 1px solid white;
+}
+.input::placeholder {
+  /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: gray;
+  opacity: 1; /* Firefox */
+}
+
+.input:-ms-input-placeholder {
+  /* Internet Explorer 10-11 */
+  color: gray;
+}
+
+.input::-ms-input-placeholder {
+  /* Microsoft Edge */
+  color: gray;
+}
+
+.providers {
+  position: absolute;
+  top: 120px;
+  left: 100px;
+  color: gray;
 }
 .infoBorder {
   background-color: rgba(37, 37, 37, 0.5);
   width: 1000%;
   height: 1000%;
-  z-index: 50 !important;
+  z-index: -1;
   position: fixed;
   top: 0;
   left: 0;

@@ -8,14 +8,13 @@ const Featured = (props) => {
   const [show, setShow] = useState("");
   const [trailerModal, setTrailerModal] = useState(false);
   const [infoModal, setInfoModal] = useState(false);
-
   useEffect(() => {
     const fetchPost = async () => {
       const result = await fetch(props.url);
       const data = await result.json();
       let randomFeature =
         data.results[Math.floor(Math.random() * data.results.length - 1)];
-      if (typeof randomFeature.backdrop_path === "undefined") {
+      while (!randomFeature || !randomFeature.backdrop_path) {
         randomFeature =
           data.results[Math.floor(Math.random() * data.results.length - 1)];
       }
