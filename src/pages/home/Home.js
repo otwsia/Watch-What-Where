@@ -10,6 +10,7 @@ import SearchList from "../../components/list/SearchList";
 const Home = (props) => {
   return (
     <div className={`container-fluid ${styles.home}`}>
+      {/* Shortcircuit to render base page if not searching */}
       {!props.searchTag && (
         <>
           <Featured category="home" url={categoriesHome} />
@@ -25,6 +26,7 @@ const Home = (props) => {
           />
         </>
       )}
+      {/* Shortcircuit to render search */}
       {props.searchTag && (
         <SearchList
           query={props.searchTag}

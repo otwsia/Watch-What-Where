@@ -1,10 +1,11 @@
 import styles from "./list.module.css";
+
+import React, { useEffect, useRef, useState } from "react";
 import {
   ArrowBackIosOutlined,
   ArrowForwardIosOutlined,
 } from "@mui/icons-material";
 
-import React, { useEffect, useRef, useState } from "react";
 import ListItem from "./list-item/ListItem";
 
 const List = (props) => {
@@ -20,7 +21,6 @@ const List = (props) => {
       listRef.current.style.transform = `translateX(${230 + distance}px)`;
     }
   };
-
   const handleClickRight = () => {
     if (movieNumber < 10) {
       setMovieNumber(movieNumber + 1);
@@ -58,7 +58,9 @@ const List = (props) => {
             display: movieNumber > 0 && hovered ? "inline-block" : "none",
           }}
         />
+        {/* Above shortcuit to hide left, back arrow button when at movie 0 or not hovered*/}
         <div className={`${styles.box}`} ref={listRef}>
+          {/* Shortcircuit to verify valid backdrop link */}
           {movies.map(
             (movie, i) =>
               movie.backdrop_path && (
@@ -76,6 +78,7 @@ const List = (props) => {
           onClick={handleClickRight}
           style={{ display: hovered ? "inline-block" : "none" }}
         />
+        {/* Shortcircuit to hide right, forward arrow when not hovered */}
       </div>
     </div>
   );

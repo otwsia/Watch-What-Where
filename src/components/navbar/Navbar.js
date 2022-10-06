@@ -11,7 +11,7 @@ const Navbar = (props) => {
   const [searchbar, setSearchbar] = useState(false);
   const [searchInput, setSearchInput] = useState("");
 
-  //window scroll checked to change navbar background on scroll
+  //window event listener to change navbar background on scroll
   window.onscroll = () => {
     setScrolled(window.pageYOffset === 0 ? false : true);
     return () => (window.onscroll = null);

@@ -9,11 +9,14 @@ import SearchList from "../../components/list/SearchList";
 
 const Movies = (props) => {
   const [genre, setGenre] = useState("");
+
   const handleGenreChange = (liftedData) => {
     setGenre(liftedData);
   };
+
   return (
     <div className={`container-fluid ${styles.movies}`}>
+      {/* Shortcircuit to render base page if not searching */}
       {!props.searchTag && (
         <>
           <Featured
@@ -61,6 +64,7 @@ const Movies = (props) => {
           />
         </>
       )}
+      {/* Shortcircuit to render search */}
       {props.searchTag && (
         <SearchList
           query={props.searchTag}

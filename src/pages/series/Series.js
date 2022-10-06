@@ -9,11 +9,14 @@ import SearchList from "../../components/list/SearchList";
 
 const Series = (props) => {
   const [genre, setGenre] = useState("");
+
   const handleGenreChange = (liftedData) => {
     setGenre(liftedData);
   };
+
   return (
     <div className={`container-fluid ${styles.series}`}>
+      {/* Shortcircuit to render base page if not searching */}
       {!props.searchTag && (
         <>
           <Featured
@@ -49,6 +52,7 @@ const Series = (props) => {
           />
         </>
       )}
+      {/* Shortcircuit to render search */}
       {props.searchTag && (
         <SearchList
           query={props.searchTag}

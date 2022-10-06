@@ -1,6 +1,8 @@
 import styles from "./featured.module.css";
+
 import { InfoOutlined, PlayArrow } from "@mui/icons-material";
 import React, { useEffect, useState } from "react";
+
 import TrailerModal from "../Modal/TrailerModal";
 import InfoModal from "../Modal/InfoModal";
 
@@ -9,35 +11,6 @@ const Featured = (props) => {
   const [trailerModal, setTrailerModal] = useState(false);
   const [infoModal, setInfoModal] = useState(false);
   const [genre, setGenre] = useState("");
-
-  useEffect(() => {
-    const fetchPost = async () => {
-      if (!genre || genre === "genre") {
-        const result = await fetch(props.url.trending);
-        const data = await result.json();
-        let randomFeature =
-          data.results[Math.floor(Math.random() * data.results.length - 1)];
-        while (!randomFeature || !randomFeature.backdrop_path) {
-          randomFeature =
-            data.results[Math.floor(Math.random() * data.results.length - 1)];
-        }
-        setShow(randomFeature);
-        return data;
-      } else {
-        const result = await fetch(props.url[genre]);
-        const data = await result.json();
-        let randomFeature =
-          data.results[Math.floor(Math.random() * data.results.length - 1)];
-        while (!randomFeature || !randomFeature.backdrop_path) {
-          randomFeature =
-            data.results[Math.floor(Math.random() * data.results.length - 1)];
-        }
-        setShow(randomFeature);
-        return data;
-      }
-    };
-    fetchPost();
-  }, [props.url, genre]);
 
   const truncate = (string, n) => {
     return string?.length > n ? string.substr(0, n - 1) + "..." : string;
@@ -65,10 +38,44 @@ const Featured = (props) => {
     setInfoModal(false);
   };
 
+  useEffect(() => {
+    const fetchPost = async () => {
+      //if/else to check genre selection
+      if (!genre || genre === "genre") {
+        const result = await fetch(props.url.trending);
+        const data = await result.json();
+        let randomFeature =
+          data.results[Math.floor(Math.random() * data.results.length - 1)];
+        //loop to ensure that random feature result is not null
+        while (!randomFeature || !randomFeature.backdrop_path) {
+          randomFeature =
+            data.results[Math.floor(Math.random() * data.results.length - 1)];
+        }
+        setShow(randomFeature);
+        return data;
+      } else {
+        const result = await fetch(props.url[genre]);
+        const data = await result.json();
+        let randomFeature =
+          data.results[Math.floor(Math.random() * data.results.length - 1)];
+        //loop to ensure that random feature result is not null
+        while (!randomFeature || !randomFeature.backdrop_path) {
+          randomFeature =
+            data.results[Math.floor(Math.random() * data.results.length - 1)];
+        }
+        setShow(randomFeature);
+        return data;
+      }
+    };
+    fetchPost();
+  }, [props.url, genre]);
+
   return (
     <div className={`${styles.featured}`}>
+      {/* Shortcircuit to render genre dropdown if not at home page */}
       {props.category !== "home" && (
         <div className={`${styles.category}`}>
+          {/* Render page category based on current page */}
           <span>{props.category === "movie" ? "Movies" : "Series"}</span>
           <select
             name="genre"
@@ -83,17 +90,23 @@ const Featured = (props) => {
           </select>
         </div>
       )}
+      {/* Shortcircuit to check for valid backdrop */}
       <img
         className={`${styles.banner}`}
-        src={`https://image.tmdb.org/t/p/original${show.backdrop_path}`}
+        src={
+          show?.backdrop_path &&
+          `https://image.tmdb.org/t/p/original${show.backdrop_path}`
+        }
         alt="featured show"
       />
       <div className={`${styles.info}`}>
         <h1 className={`${styles.title}`}>
+          {/* Render title or backup names */}
           {show?.title || show?.name || show?.original_name}
         </h1>
         <br />
         <div className={styles.overview}>{truncate(show?.overview, 200)}</div>
+        {/* Render trailer on state change */}
         {trailerModal && (
           <TrailerModal
             movie={show}
@@ -105,6 +118,7 @@ const Featured = (props) => {
             }
           />
         )}
+        {/* Render info pop up based on state change */}
         {infoModal && (
           <InfoModal
             id={show.id}
@@ -116,6 +130,7 @@ const Featured = (props) => {
                 : "tv"
             }
           />
+          // category based on current page
         )}
         <div className="d-flex">
           <button

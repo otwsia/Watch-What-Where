@@ -1,6 +1,7 @@
 import styles from "./searchListItem.module.css";
 
 import React, { useState } from "react";
+
 import InfoModal from "../../Modal/InfoModal";
 import TrailerModal from "../../Modal/TrailerModal";
 
@@ -37,6 +38,7 @@ const SearchListItem = (props) => {
           onClick={handleInfo}
         />
       </div>
+      {/* Render trailer modal on state change from button click in info modal */}
       {trailerModal && (
         <TrailerModal
           movie={props.movie}
@@ -44,6 +46,7 @@ const SearchListItem = (props) => {
           category={props.category}
         />
       )}
+      {/* Render info modal on state change from button click */}
       {infoModal && (
         <InfoModal
           id={props.movie.id}
@@ -55,6 +58,7 @@ const SearchListItem = (props) => {
               : "tv"
           }
         />
+        // ternary to prop down appropriate category wrt page
       )}
     </div>
   );

@@ -1,7 +1,8 @@
+import styles from "./infoModal.module.css";
+
 import { Cancel, PlayArrow } from "@mui/icons-material";
 import React, { useEffect, useState } from "react";
 import ReactDOM from "react-dom";
-import styles from "./infoModal.module.css";
 
 const Overlay = (props) => {
   const [details, setDetails] = useState("");
@@ -13,14 +14,15 @@ const Overlay = (props) => {
   const year = (string) => {
     return string && string.substr(0, 7);
   };
-
   const handleChange = (e) => {
     setInput(e.target.value);
   };
-
   const handleSubmit = (e) => {
     e.preventDefault();
     setRegion(input.toUpperCase());
+  };
+  const overviewOverload = (string) => {
+    return string?.length > 580 ? string.substr(0, 580) + "..." : string;
   };
 
   useEffect(() => {
@@ -46,15 +48,20 @@ const Overlay = (props) => {
 
   return (
     <div className={styles.backdrop}>
+      {/* Shortcirucuit to check for valid show details */}
       <img
         className={`${styles.banner}`}
-        src={`https://image.tmdb.org/t/p/original${details.backdrop_path}`}
+        src={
+          details &&
+          `https://image.tmdb.org/t/p/original${details.backdrop_path}`
+        }
         alt="movie banner"
       />
       <Cancel onClick={props.handleClose} className={styles.close} />
       <div className={styles.fade}></div>
       <div className={styles.bottom}>
         <div className={styles.bottomLeft}>
+          {/* Render title or backup names */}
           <h1 className={`${styles.title}`}>
             {details?.title || details?.name || details?.original_name}
           </h1>
@@ -70,16 +77,19 @@ const Overlay = (props) => {
               {`${Math.round(details.vote_average * 10)}%`}
             </span>
             <span className={`${styles.stats} ${styles.border}`}>
+              {/* ternary to display either runtime or seasons based on page */}
               {props.category === "movie"
                 ? `${details.runtime}m`
                 : `${details.number_of_seasons} Seasons`}
             </span>
             <span className={`${styles.stats} ${styles.border}`}>
+              {/* ternary to show release date or first air date based on page */}
               {props.category === "movie"
                 ? year(details.release_date)
                 : year(details.first_air_date)}
             </span>
             <div className={`${styles.stats}`}>
+              {/* Shortcircuit for valid languages */}
               {details.spoken_languages &&
                 details.spoken_languages.map((language, i) => {
                   return (
@@ -95,7 +105,9 @@ const Overlay = (props) => {
                 })}
             </div>
           </div>
-          <p className={styles.overview}>{details?.overview}</p>
+          <p className={styles.overview}>
+            {overviewOverload(details?.overview)}
+          </p>
           <div className={styles.genres}>
             {details.genres &&
               details.genres.map((item, i) => {
@@ -112,6 +124,7 @@ const Overlay = (props) => {
         <div className={styles.bottomRight}>
           <form className={styles.regionInput} onSubmit={handleSubmit}>
             <label htmlFor="region">Region:</label>
+            {/* Ternary to remove input border if region has been input and set */}
             <input
               type="text"
               list="regions"
@@ -123,6 +136,7 @@ const Overlay = (props) => {
               placeholder="eg. SG"
             />
             <datalist id="regions">
+              {/* Shortcircuit for valid list of providers */}
               {providersList &&
                 providersList.map((provider, index) => {
                   return <option value={provider} key={index}></option>;
@@ -132,6 +146,7 @@ const Overlay = (props) => {
           <div className={styles.providers}>
             <p className={styles.providerTab}>Stream at:</p>
             <div className={styles.container}>
+              {/* Nested ternary that displays show stream availability upon valid region set */}
               {!region ? null : providers[region] &&
                 providers[region].flatrate ? (
                 providers[region].flatrate.map((item, index) => {
@@ -150,6 +165,7 @@ const Overlay = (props) => {
             </div>
             <p className={styles.providerTab}>Purchase at:</p>
             <div className={styles.container}>
+              {/* Nested ternary that displays show purchase availability upon valid region set */}
               {!region ? null : providers[region] && providers[region].buy ? (
                 providers[region].buy.map((item, index) => {
                   return (

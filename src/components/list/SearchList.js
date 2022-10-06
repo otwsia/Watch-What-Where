@@ -1,9 +1,11 @@
+import styles from "./searchList.module.css";
+
 import React, { useEffect, useState } from "react";
 import SearchListItem from "./list-item/SearchListItem";
-import styles from "./searchList.module.css";
 
 const SearchList = (props) => {
   const [movies, setMovies] = useState([]);
+
   useEffect(() => {
     const fetchPost = async () => {
       const result = await fetch(props.url);
@@ -13,6 +15,7 @@ const SearchList = (props) => {
     };
     fetchPost();
   }, [props.url]);
+
   return (
     <>
       <div className={`${styles.box1}`}>
