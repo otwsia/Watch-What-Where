@@ -1,6 +1,5 @@
 .navbar {
   height: 50px;
-  /* background-color: var(--main-color); */
   color: lightgray;
   padding: 0% 1%;
   align-items: center;
@@ -45,21 +44,5 @@ a.active {
   background-color: transparent;
   border: 1px solid lightgray;
   margin-right: 150px;
-  color: lightgray;
-}
-
-::placeholder {
-  /* Chrome, Firefox, Opera, Safari 10.1+ */
-  color: lightgray;
-  opacity: 1; /* Firefox */
-}
-
-:-ms-input-placeholder {
-  /* Internet Explorer 10-11 */
-  color: lightgray;
-}
-
-::-ms-input-placeholder {
-  /* Microsoft Edge */
   color: lightgray;
 }

@@ -1,4 +1,5 @@
 import "./app.css";
+
 import React, { useState } from "react";
 import { Route, Switch } from "react-router-dom";
 
@@ -9,9 +10,12 @@ import Movies from "./pages/Movies/Movies";
 
 function App() {
   const [searchTag, setSearchTag] = useState("");
+
+  // Search is not an individual route and is instead on each page so that shows are filtered based on movies, series and all(home)
   const handleSearch = (liftedData) => {
     setSearchTag(liftedData);
   };
+
   return (
     <div>
       <Navbar setSearchTag={handleSearch} />

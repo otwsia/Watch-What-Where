@@ -36,9 +36,6 @@ const Overlay = (props) => {
       Object.keys(providersData.results).forEach((key) => {
         providersListData.push(key);
       });
-      console.log(providersData);
-      console.log(providersListData);
-      console.log(providersData.results);
       setProviders(providersData.results);
       setProvidersList(providersListData);
 
@@ -134,9 +131,6 @@ const Overlay = (props) => {
           </form>
           <div className={styles.providers}>
             <p className={styles.providerTab}>Stream at:</p>
-            {console.log({ providers })}
-            {console.log({ providersRegion: providers[region] })}
-            {console.log({ region })}
             <div className={styles.container}>
               {!region ? null : providers[region] &&
                 providers[region].flatrate ? (
@@ -174,7 +168,7 @@ const Overlay = (props) => {
           </div>
         </div>
       </div>
-
+      {/* faded background that on click closes modal */}
       <div className={styles.infoBorder} onClick={props.handleClose}></div>
     </div>
   );
