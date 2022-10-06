@@ -7,7 +7,7 @@
   position: absolute;
   top: 80px;
   left: 50px;
-  font-size: 30px;
+  font-size: 24px;
   font-weight: 500;
   color: white;
   display: flex;
@@ -33,16 +33,19 @@
   width: 30%;
   position: absolute;
   left: 50px;
-  bottom: 100px;
+  bottom: 50px;
   color: white;
 }
 
 .title {
-  font-size: 50px;
+  font-size: 40px;
   font-weight: 500;
   color: white;
 }
-
+.overview {
+  margin-bottom: 2%;
+  text-align: justify;
+}
 .button {
   padding: 10px 20px;
   border: none;

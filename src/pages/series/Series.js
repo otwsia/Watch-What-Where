@@ -18,7 +18,7 @@ const Series = (props) => {
         <>
           <Featured
             category="tv"
-            url={categoriesSeries.trending}
+            url={categoriesSeries}
             handleGenreChange={handleGenreChange}
           />
           {genre === "action" && (
@@ -52,7 +52,7 @@ const Series = (props) => {
       {props.searchTag && (
         <SearchList
           query={props.searchTag}
-          category="movie"
+          category="series"
           url={categoriesSeries.seriesSearch + props.searchTag}
         />
       )}

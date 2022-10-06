@@ -12,7 +12,7 @@ const Home = (props) => {
     <div className={`container-fluid ${styles.home}`}>
       {!props.searchTag && (
         <>
-          <Featured category="home" url={categoriesHome.trending} />
+          <Featured category="home" url={categoriesHome} />
           <List
             title="Trending"
             category="movie"

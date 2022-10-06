@@ -7,8 +7,8 @@
   top: 0;
   bottom: 0;
   margin: auto;
-  width: 80%;
-  height: 80%;
+  width: 85%;
+  height: 85%;
   z-index: 99;
   border-radius: 5px;
   background-color: var(--main-color);
@@ -63,26 +63,29 @@
 
 .bottomLeft {
   position: absolute;
-  width: 60%;
+  width: 70%;
   height: 100%;
   background-color: var(--main-color);
 }
 
 .title {
-  font-size: 40px;
+  font-size: 32px;
   font-weight: 500;
   color: white;
   z-index: 101;
   margin-left: 2%;
   margin-right: 2%;
+  margin-bottom: 1%;
   text-align: justify;
 }
 
 .info {
   display: flex;
   align-items: center;
-  margin: 2%;
+  margin: 1%;
+  margin-left: 2%;
   font-weight: 500;
+  font-size: 14px;
 }
 .button {
   padding: 10px 20px;
@@ -94,7 +97,7 @@
   justify-content: center;
   z-index: 101;
   margin-right: 2%;
-  height: 32px;
+  height: 30px;
 }
 
 .trailer {
@@ -125,7 +128,7 @@
 
 .overview {
   color: lightgray;
-  margin: 3% 2% 3% 2%;
+  margin: 1.5% 2% 1.5% 2%;
   text-align: justify;
 }
 
@@ -141,7 +144,7 @@
 
 .bottomRight {
   position: absolute;
-  width: 40%;
+  width: 30%;
   height: 100%;
   bottom: 0;
   right: 0;
@@ -150,8 +153,8 @@
 
 .regionInput {
   position: absolute;
-  top: 75px;
-  left: 100px;
+  top: 50px;
+  left: 30px;
   color: gray;
 }
 
@@ -190,8 +193,8 @@
 
 .providers {
   position: absolute;
-  top: 120px;
-  left: 100px;
+  top: 87px;
+  left: 30px;
   color: gray;
 }
 
@@ -200,7 +203,7 @@
   margin: 0;
 }
 .infoBorder {
-  background-color: rgba(37, 37, 37, 0.5);
+  background-color: rgba(37, 37, 37, 0.8);
   width: 1000%;
   height: 1000%;
   z-index: -1;
@@ -211,7 +214,7 @@
 }
 
 .providerIcon {
-  height: 50px;
+  height: 40px;
   object-fit: cover;
   margin-right: 10px;
   margin-bottom: 5px;
@@ -222,7 +225,8 @@
 }
 
 .container {
-  height: 50px;
+  height: 40px;
   width: 100%;
-  margin-bottom: 10px;
+  margin-top: 5px;
+  margin-bottom: 5px;
 }

@@ -8,30 +8,44 @@ const Featured = (props) => {
   const [show, setShow] = useState("");
   const [trailerModal, setTrailerModal] = useState(false);
   const [infoModal, setInfoModal] = useState(false);
+  const [genre, setGenre] = useState("");
+
   useEffect(() => {
     const fetchPost = async () => {
-      const result = await fetch(props.url);
-      const data = await result.json();
-      let randomFeature =
-        data.results[Math.floor(Math.random() * data.results.length - 1)];
-      while (!randomFeature || !randomFeature.backdrop_path) {
-        randomFeature =
+      if (!genre || genre === "genre") {
+        const result = await fetch(props.url.trending);
+        const data = await result.json();
+        let randomFeature =
           data.results[Math.floor(Math.random() * data.results.length - 1)];
+        while (!randomFeature || !randomFeature.backdrop_path) {
+          randomFeature =
+            data.results[Math.floor(Math.random() * data.results.length - 1)];
+        }
+        setShow(randomFeature);
+        return data;
+      } else {
+        const result = await fetch(props.url[genre]);
+        const data = await result.json();
+        let randomFeature =
+          data.results[Math.floor(Math.random() * data.results.length - 1)];
+        while (!randomFeature || !randomFeature.backdrop_path) {
+          randomFeature =
+            data.results[Math.floor(Math.random() * data.results.length - 1)];
+        }
+        setShow(randomFeature);
+        return data;
       }
-      setShow(randomFeature);
-      return data;
     };
     fetchPost();
-  }, [props.url]);
+  }, [props.url, genre]);
 
   const truncate = (string, n) => {
     return string?.length > n ? string.substr(0, n - 1) + "..." : string;
   };
-
   const handleChange = (e) => {
+    setGenre(e.target.value);
     props.handleGenreChange(e.target.value);
   };
-
   const handleTrailer = () => {
     if (trailerModal === false) {
       setTrailerModal(true);
@@ -39,7 +53,6 @@ const Featured = (props) => {
       setTrailerModal(false);
     }
   };
-
   const handleInfo = () => {
     if (infoModal === false) {
       setInfoModal(true);
@@ -47,7 +60,6 @@ const Featured = (props) => {
       setInfoModal(false);
     }
   };
-
   const handleClose = () => {
     setTrailerModal(false);
     setInfoModal(false);
@@ -81,7 +93,7 @@ const Featured = (props) => {
           {show?.title || show?.name || show?.original_name}
         </h1>
         <br />
-        <span className="my-20">{truncate(show?.overview, 150)}</span>
+        <div className={styles.overview}>{truncate(show?.overview, 200)}</div>
         {trailerModal && (
           <TrailerModal
             movie={show}

@@ -18,7 +18,7 @@ const Movies = (props) => {
         <>
           <Featured
             category="movie"
-            url={categoriesMovies.trending}
+            url={categoriesMovies}
             handleGenreChange={handleGenreChange}
           />
           {genre === "action" && (
