@@ -191,6 +191,11 @@
   left: 100px;
   color: gray;
 }
+
+.alert {
+  color: lightgray;
+  margin: 0;
+}
 .infoBorder {
   background-color: rgba(37, 37, 37, 0.5);
   width: 1000%;
@@ -200,4 +205,20 @@
   top: 0;
   left: 0;
   margin: auto;
+}
+
+.providerIcon {
+  height: 50px;
+  object-fit: cover;
+  margin-right: 10px;
+}
+
+.providerTab {
+  margin: 0;
+}
+
+.container {
+  height: 50px;
+  width: 100%;
+  margin-bottom: 10px;
 }
