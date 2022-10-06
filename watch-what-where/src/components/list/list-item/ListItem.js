@@ -4,10 +4,13 @@ import React, { useState } from "react";
 import { InfoOutlined, PlayCircleOutlined } from "@mui/icons-material";
 import genre from "../genre";
 import TrailerModal from "../../Modal/TrailerModal";
+import InfoModal from "../../Modal/InfoModal";
 
 const ListItem = (props) => {
   const [hovered, setHovered] = useState("");
   const [trailerModal, setTrailerModal] = useState(false);
+  const [infoModal, setInfoModal] = useState(false);
+
   const truncate = (string, n) => {
     return string?.length > n ? string.substr(0, n - 1) + "..." : string;
   };
@@ -19,8 +22,17 @@ const ListItem = (props) => {
     }
   };
 
+  const handleInfo = () => {
+    if (infoModal === false) {
+      setInfoModal(true);
+    } else {
+      setInfoModal(false);
+    }
+  };
+
   const handleClose = () => {
     setTrailerModal(false);
+    setInfoModal(false);
   };
 
   const year = (string) => {
@@ -45,7 +57,7 @@ const ListItem = (props) => {
               className={`${styles.icon}`}
               onClick={handleTrailer}
             />
-            <InfoOutlined className={`${styles.icon}`} />
+            <InfoOutlined className={`${styles.icon}`} onClick={handleInfo} />
             <span className={`${styles.stats} ${styles.border}`}>
               {`${Math.round(props.movie.vote_average * 10)}%`}
             </span>
@@ -82,6 +94,18 @@ const ListItem = (props) => {
           movie={props.movie}
           handleClose={handleClose}
           category={props.category}
+        />
+      )}
+      {infoModal && (
+        <InfoModal
+          id={props.movie.id}
+          handleClose={handleClose}
+          handleTrailer={handleTrailer}
+          category={
+            props.category === "home" || props.category === "movie"
+              ? "movie"
+              : "tv"
+          }
         />
       )}
     </div>
