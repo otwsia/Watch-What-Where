@@ -49,7 +49,7 @@ const Navbar = (props) => {
           alt="website logo"
         />
       </div>
-
+      {/* Exact is required for home active styling to work */}
       <NavLink
         className={`${styles.flex} ${styles.pointer} ${styles.link} col-1`}
         activeClassName={styles.active}

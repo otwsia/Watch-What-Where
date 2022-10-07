@@ -17,6 +17,7 @@ const List = (props) => {
   const handleClickLeft = () => {
     if (movieNumber > 0) {
       setMovieNumber(movieNumber - 1);
+      //used getboundingclietrect to get current x coordinate
       let distance = listRef.current.getBoundingClientRect().x - 50;
       listRef.current.style.transform = `translateX(${230 + distance}px)`;
     }

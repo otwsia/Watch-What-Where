@@ -42,6 +42,7 @@ const Overlay = (props) => {
       <div className={styles.close}>
         <Cancel onClick={props.handleClose} className={styles.svg} />
       </div>
+      {/* Faded background that closes on click */}
       <div className={styles.trailerBorder} onClick={props.handleClose}></div>
     </div>
   );

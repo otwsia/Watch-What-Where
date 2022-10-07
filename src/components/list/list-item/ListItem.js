@@ -12,6 +12,7 @@ const ListItem = (props) => {
   const [trailerModal, setTrailerModal] = useState(false);
   const [infoModal, setInfoModal] = useState(false);
 
+  //fn to cut down on overview if too long
   const truncate = (string, n) => {
     return string?.length > n ? string.substr(0, n - 1) + "..." : string;
   };
