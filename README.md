@@ -86,5 +86,6 @@
         Similar to the scrollbars on the various pages, enable pop ups for brief information on search results.
 
 **7. Credits**
--TMDB
-Special thanks to TMBD for the comprehensive API and database without which the app would not have been possible
+
+    -TMDB
+        Special thanks to TMBD for the comprehensive API and database without which the app would not have been possible
